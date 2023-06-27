@@ -10,15 +10,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/cobiwave/simplefolio"
+    "url": "git+https://github.com/hilmanzhy/hilmanzhy.github.io"
   },
   "keywords": [],
   "author": "Jacobo Martinez",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/cobiwave/simplefolio/issues"
+    "url": "https://github.com/hilmanzhy/hilmanzhy.github.io/issues"
   },
-  "homepage": "https://github.com/hilmanzhy/hilmanzhy.github.io/src/index.html",
+  "homepage": "https://github.com/hilmanzhy/hilmanzhy.github.io",
   "devDependencies": {
     "@parcel/transformer-sass": "^2.8.2",
     "parcel": "^2.8.2",
