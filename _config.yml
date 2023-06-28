@@ -43,12 +43,12 @@ social:
     url:
   - title: instagram
     url:
-  - title: stack-overflow
-    url:
-  - title: bitbucket
+  - title: blogger
     url:
   - title: github
-    url: http://github.com/hilmanzhy
+    url: https://github.com/hilmanzhy
+  - title: github
+    url: 
 
 # Postal address (add as many lines as necessary)
 address:
