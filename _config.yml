@@ -40,15 +40,13 @@ footer:
 # Social networks usernames (many more available: google-plus, flickr, dribbble, pinterest, instagram, tumblr, linkedin, etc.)
 social:
   - title: linkedin
-    url:
+    url: https://www.linkedin.com/in/hilman-zuhfy-224418171
   - title: instagram
-    url:
+    url: https://instagram.com/hilmanzhy
   - title: blogger
-    url:
+    url: https://cornet2.blogspot.com
   - title: github
     url: https://github.com/hilmanzhy
-  - title: github
-    url: 
 
 # Postal address (add as many lines as necessary)
 address:
