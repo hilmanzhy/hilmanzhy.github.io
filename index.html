@@ -429,12 +429,41 @@
       color: var(--accent); font-size: 0.75rem;
       top: 2px;
     }
-    .timeline-toggle {
-      background: none; border: none; cursor: pointer;
-      color: var(--accent); font-size: 0.8rem; font-weight: 600;
-      margin-top: 0.5rem; padding: 0;
-      display: flex; align-items: center; gap: 0.3rem;
+    .timeline-extra {
+      list-style: none;
+      overflow: hidden;
+      max-height: 0;
+      transition: max-height 0.4s ease, opacity 0.3s ease;
+      opacity: 0;
     }
+    .timeline-extra.open {
+      max-height: 600px;
+      opacity: 1;
+    }
+    .timeline-extra li {
+      font-size: 0.875rem;
+      color: var(--text-secondary);
+      line-height: 1.65;
+      padding-left: 1rem;
+      position: relative;
+      margin-bottom: 0.35rem;
+    }
+    .timeline-extra li::before {
+      content: '→';
+      position: absolute; left: 0;
+      color: var(--accent); font-size: 0.75rem;
+      top: 2px;
+    }
+    .timeline-toggle {
+      background: none; border: 1.5px solid var(--border); cursor: pointer;
+      color: var(--accent); font-size: 0.78rem; font-weight: 600;
+      margin-top: 0.85rem; padding: 0.3rem 0.85rem;
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      border-radius: 999px; transition: border-color 0.2s, background 0.2s;
+    }
+    .timeline-toggle:hover { background: var(--blue-50); border-color: var(--accent); }
+    .timeline-toggle i { font-size: 0.7rem; transition: transform 0.3s; }
+    .timeline-toggle.open i { transform: rotate(180deg); }
 
     /* ===== PROJECTS ===== */
     #projects { background: var(--white); }
@@ -647,12 +676,13 @@
   <!-- NAV -->
   <nav id="navbar">
     <div class="nav-inner">
-      <a href="#hero" class="nav-logo">hilman<span>.</span>dev</a>
+      <a href="#hero" class="nav-logo">Hilman <span>Zuhfy</span></a>
       <ul class="nav-links" id="navLinks">
         <li><a href="#about">About</a></li>
         <li><a href="#skills">Skills</a></li>
         <li><a href="#experience">Experience</a></li>
         <li><a href="#projects">Projects</a></li>
+        <li><a href="assets/resume.pdf" target="_blank" download>Resume</a></li>
         <li><a href="#contact" class="nav-cta">Contact</a></li>
       </ul>
       <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
@@ -755,6 +785,8 @@
           <div class="about-socials">
             <a href="https://github.com/hilmanzhy" target="_blank" rel="noreferrer" class="social-link"><i class="fab fa-github"></i></a>
             <a href="https://linkedin.com/in/hilmanzhy" target="_blank" rel="noreferrer" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://instagram.com/hilmanzhy" target="_blank" rel="noreferrer" class="social-link"><i class="fab fa-instagram"></i></a>
+            <a href="https://wa.me/6289696037834" target="_blank" rel="noreferrer" class="social-link"><i class="fab fa-whatsapp"></i></a>
             <a href="mailto:hilmanzhy@gmail.com" class="social-link"><i class="fas fa-envelope"></i></a>
           </div>
         </div>
@@ -913,11 +945,25 @@
             </div>
             <ul class="timeline-desc">
               <li>Lead a DevOps team automating infrastructure, CI/CD pipelines, and observability platforms across hybrid cloud (AWS &amp; GCP).</li>
-              <li>Define architecture blueprints for high-availability microservice clusters using Kubernetes (GKE &amp; EKS) and GitOps patterns.</li>
-              <li>Design end-to-end CI/CD pipelines with GitHub Actions and Cloud Build, integrating automated testing, vulnerability scanning, and blue-green deployment strategies.</li>
-              <li>Lead cloud cost optimization initiatives achieving savings without sacrificing performance through auto-scaling and resource rightsizing.</li>
-              <li>Manage KMS and secret storage (Vault), lead internal security reviews, and threat modeling workshops.</li>
+              <li>Assign operational and project tasks based on individual expertise to ensure balanced workloads, clear ownership, and measurable deliverables aligned with sprint and release cycles.</li>
+              <li>Hold weekly stand-ups and sprint retrospectives to track progress, resolve blockers, and adjust priorities based on business needs and SLA commitments.</li>
             </ul>
+            <ul class="timeline-extra" id="extra-darmawan">
+              <li>Mentor junior engineers through code reviews, knowledge sharing sessions, and pair programming, improving team productivity and technical maturity.</li>
+              <li>Create SOPs for deployment, incident management, and infrastructure provisioning to reduce MTTR and increase system reliability.</li>
+              <li>Oversee multi-environment infrastructure provisioning using Terraform and Ansible, enforcing version control, approval workflows, and change management.</li>
+              <li>Define architecture blueprints for high-availability microservice clusters using Kubernetes (GKE &amp; EKS) and GitOps patterns.</li>
+              <li>Lead cloud cost optimization by analyzing usage metrics, implementing auto-scaling, and renegotiating resource commitments without sacrificing performance.</li>
+              <li>Design end-to-end CI/CD pipelines with GitHub Actions and Cloud Build, integrating automated testing, vulnerability scanning, and blue-green deployment strategies.</li>
+              <li>Assign pipeline maintenance and key rotation tasks through role-based workflows, ensuring least-privilege access and audit-ready configurations.</li>
+              <li>Lead internal security reviews and threat modeling workshops, coordinating remediation plans and delegating vulnerability ownership across teams.</li>
+              <li>Manage key management systems (KMS) and secret storage (Vault), assigning access through automated workflows.</li>
+              <li>Act as the primary liaison between infrastructure, application, and security teams, translating technical insights into executive reports and capacity plans.</li>
+              <li>Oversee documentation standards, ensuring all playbooks, diagrams, and runbooks are up-to-date and traceable in Confluence/Notion repositories.</li>
+            </ul>
+            <button class="timeline-toggle" onclick="toggleExtra('extra-darmawan', this)">
+              <i class="fas fa-chevron-down"></i> Show more
+            </button>
           </div>
         </div>
 
@@ -934,10 +980,23 @@
             <ul class="timeline-desc">
               <li>Implemented IaC using Terraform and Ansible to automate and manage cloud infrastructure across GCP and AWS.</li>
               <li>Conducted cost analysis and optimization on GCP billing, achieving up to <strong>40% savings</strong> through rightsizing, auto-scaling, and decommissioning unused assets.</li>
-              <li>Supported ISO 27001 compliance initiatives using Scrut.io, ensuring systems aligned with industry security standards.</li>
-              <li>Performed 24/7 infrastructure monitoring, on-call incident response, and root cause analysis with structured Post Mortem Reports.</li>
-              <li>Designed CI/CD pipelines using GCP Cloud Build, enabling automated deployment workflows and reducing manual errors.</li>
+              <li>Led security hardening efforts including IAM policy audits and enforcement of least-privilege access, improving cloud security posture.</li>
             </ul>
+            <ul class="timeline-extra" id="extra-sinarmas">
+              <li>Performed 24/7 infrastructure monitoring, on-call incident response, and root cause analysis with structured Post Mortem Reports.</li>
+              <li>Designed and implemented CI/CD pipelines using GCP Cloud Build, enabling automated deployment workflows and reducing manual errors.</li>
+              <li>Supported ISO 27001 compliance initiatives using Scrut.io, ensuring all systems aligned with industry security standards.</li>
+              <li>Authored and maintained comprehensive Documentation (DRD) for cloud architecture, tooling, and service integrations.</li>
+              <li>Managed migration and restructuring of staging and production workloads on GCP to improve performance, scalability, and maintainability.</li>
+              <li>Maintained and updated container images, system packages, and infrastructure tools with automated version control, cleanup, and rotation.</li>
+              <li>Enforced consistent resource tagging and labeling strategies to support automation, ownership tracking, and cost management.</li>
+              <li>Collaborated cross-functionally to provision secure access credentials, rotate API keys and service accounts, and manage container registries.</li>
+              <li>Participated in architecture reviews and provided recommendations for scalable, secure, and cost-efficient infrastructure design.</li>
+              <li>Designed and maintained infrastructure and application-level monitoring using GCP Stackdriver, ensuring high availability and rapid incident response.</li>
+            </ul>
+            <button class="timeline-toggle" onclick="toggleExtra('extra-sinarmas', this)">
+              <i class="fas fa-chevron-down"></i> Show more
+            </button>
           </div>
         </div>
 
@@ -955,9 +1014,22 @@
               <li>Developed Python-based monitoring tools to collect Speedtest, Pingtest, Traceroute, API Test, and Videostream data across multiple networks.</li>
               <li>Deployed and configured 300+ Edge Raspberry Pi devices to gather field data and integrate with centralized cloud servers.</li>
               <li>Architected cloud-edge infrastructure on AWS and GCP for seamless data flow between edge devices and cloud instances.</li>
-              <li>Containerized services using Docker; deployed monitoring solutions on Kubernetes (EKS) with Kibana dashboards.</li>
-              <li>Produced architecture diagrams and documentation for clients including Telkomsel, Telkom Indonesia, and KOMINFO.</li>
             </ul>
+            <ul class="timeline-extra" id="extra-immobi">
+              <li>Built automation workflows using Ansible for managing and updating configurations across Edge and EC2 instances.</li>
+              <li>Provisioned and managed cloud resources with Terraform, including EC2, VPCs, and security configurations.</li>
+              <li>Created EBS images using Packer HashiCorp to support consistent deployment across environments.</li>
+              <li>Containerized services using Docker; deployed monitoring solutions on Kubernetes (EKS) with Kibana dashboards for resource health visibility.</li>
+              <li>Designed and implemented a monitoring system for Docker containers on Edge Probes, ensuring real-time visibility and operational continuity.</li>
+              <li>Integrated CI/CD pipelines with GitLab for deploying and updating configurations across distributed environments.</li>
+              <li>Implemented secure cloud and edge configurations via system hardening, firewall rules, and identity access controls.</li>
+              <li>Addressed and resolved vulnerability assessment (VA) and penetration test (pentest) findings to enhance infrastructure security.</li>
+              <li>Designed data pipelines for periodic ingestion from edge to cloud and automated database insertion workflows.</li>
+              <li>Produced architecture diagrams and documentation for Telkomsel, Telkom Indonesia, and KOMINFO.</li>
+            </ul>
+            <button class="timeline-toggle" onclick="toggleExtra('extra-immobi', this)">
+              <i class="fas fa-chevron-down"></i> Show more
+            </button>
           </div>
         </div>
 
@@ -972,10 +1044,18 @@
               <span class="timeline-period">Sep 2019 – Oct 2020</span>
             </div>
             <ul class="timeline-desc">
-              <li>Designed and developed the Nalaj Smartplug using ESP12e, integrating MQTT, SocketIO, and REST APIs for energy monitoring and remote control.</li>
-              <li>Engineered Hedeg Smartplug, a multi-channel energy control system using Raspberry Pi managing 10 devices simultaneously.</li>
-              <li>Developed a smoke detection system with real-time alarm notifications integrated into mobile/web applications.</li>
+              <li>Conducted research and prototyping of IoT-based smart home solutions, focusing on energy monitoring and device control systems.</li>
+              <li>Designed and developed the Nalaj Smartplug using ESP12e, integrating MQTT, SocketIO, and REST APIs for energy monitoring and remote control via Sitamoto platform.</li>
+              <li>Engineered Hedeg Smartplug, a multi-channel energy control system using Raspberry Pi managing 10 devices simultaneously via MQTT, SocketIO, and APIs.</li>
             </ul>
+            <ul class="timeline-extra" id="extra-vascomm">
+              <li>Developed a smoke detection system using ESP12e with real-time alarm notifications integrated into Sitamoto mobile/web applications.</li>
+              <li>Implemented security measures for Hedeg Smartplug including firewall configuration and OS hardening for safe IoT operation within local networks.</li>
+              <li>Collaborated with firmware, mobile, and backend teams to ensure seamless integration between embedded hardware, cloud services, and frontend interfaces.</li>
+            </ul>
+            <button class="timeline-toggle" onclick="toggleExtra('extra-vascomm', this)">
+              <i class="fas fa-chevron-down"></i> Show more
+            </button>
           </div>
         </div>
 
@@ -1182,7 +1262,7 @@
               <div class="contact-item-icon"><i class="fas fa-phone"></i></div>
               <div>
                 <div class="contact-item-label">Phone</div>
-                <div class="contact-item-value">+62 896-9603-7834</div>
+                <div class="contact-item-value"><a href="https://wa.me/6289696037834" target="_blank" rel="noreferrer">+62 896-9603-7834</a></div>
               </div>
             </div>
             <div class="contact-item">
@@ -1196,6 +1276,8 @@
           <div class="contact-socials">
             <a href="https://github.com/hilmanzhy" target="_blank" rel="noreferrer" class="contact-social-link"><i class="fab fa-github"></i></a>
             <a href="https://linkedin.com/in/hilmanzhy" target="_blank" rel="noreferrer" class="contact-social-link"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://instagram.com/hilmanzhy" target="_blank" rel="noreferrer" class="contact-social-link"><i class="fab fa-instagram"></i></a>
+            <a href="https://wa.me/6289696037834" target="_blank" rel="noreferrer" class="contact-social-link"><i class="fab fa-whatsapp"></i></a>
             <a href="mailto:hilmanzhy@gmail.com" class="contact-social-link"><i class="fas fa-envelope"></i></a>
           </div>
         </div>
@@ -1244,6 +1326,16 @@
     }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
 
     document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+    // Show more / show less toggle for experience
+    function toggleExtra(id, btn) {
+      const el = document.getElementById(id);
+      const isOpen = el.classList.toggle('open');
+      btn.classList.toggle('open', isOpen);
+      btn.innerHTML = isOpen
+        ? '<i class="fas fa-chevron-up"></i> Show less'
+        : '<i class="fas fa-chevron-down"></i> Show more';
+    }
 
     // Active nav link highlight
     const sections = document.querySelectorAll('section[id]');
