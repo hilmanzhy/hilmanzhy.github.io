@@ -226,7 +226,7 @@
     .hero-image-card img {
       width: 100%; height: 100%;
       object-fit: cover;
-      object-position: top center;
+      object-position: 50% 18%;
     }
     .hero-image-card .img-placeholder {
       width: 100%; height: 100%;
@@ -290,7 +290,7 @@
       width: 100%;
       aspect-ratio: 4/5;
       object-fit: cover;
-      object-position: top;
+      object-position: 50% 18%;
       border-radius: var(--radius-lg);
       box-shadow: var(--shadow-lg);
     }
@@ -500,6 +500,8 @@
     .project-title { font-size: 1rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.4rem; }
     .project-client { font-size: 0.8rem; font-weight: 600; color: var(--accent); margin-bottom: 0.85rem; }
     .project-desc { font-size: 0.875rem; color: var(--text-secondary); line-height: 1.65; margin-bottom: 1.25rem; flex: 1; }
+    .project-link { display: inline-flex; align-items: center; gap: 0.4rem; color: var(--accent); text-decoration: none; font-size: 0.8rem; font-weight: 700; margin-bottom: 1rem; }
+    .project-link:hover { color: var(--blue-700); }
     .project-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
 
     /* ===== CERTIFICATIONS ===== */
@@ -1022,7 +1024,7 @@
               <li>Provisioned and managed cloud resources with Terraform, including EC2, VPCs, and security configurations.</li>
               <li>Created EBS images using Packer HashiCorp to support consistent deployment across environments.</li>
               <li>Containerized services using Docker; deployed monitoring solutions on Kubernetes (EKS) with Kibana dashboards for resource health visibility.</li>
-              <li>Designed and implemented a monitoring system for Docker containers on Edge Probes, ensuring real-time visibility and operational continuity.</li>
+              <li>Designed and implemented a monitoring system for Docker containers on Edge zeriqos, ensuring real-time visibility and operational continuity.</li>
               <li>Integrated CI/CD pipelines with GitLab for deploying and updating configurations across distributed environments.</li>
               <li>Implemented secure cloud and edge configurations via system hardening, firewall rules, and identity access controls.</li>
               <li>Addressed and resolved vulnerability assessment (VA) and penetration test (pentest) findings to enhance infrastructure security.</li>
@@ -1083,7 +1085,7 @@
           <div class="project-title">NetEye Monitoring</div>
           <div class="project-client">Self Project</div>
           <p class="project-desc">
-            Custom network monitoring system for ISPs to track end-user internet speed, latency, and stability. Deployed 300+ Raspberry Pi edge probes at client sites, with centralized Prometheus &amp; Grafana observability and GitHub Actions CI/CD for distributed deployments.
+            Custom network monitoring system for ISPs to track end-user internet speed, latency, and stability. Deployed 300+ Raspberry Pi edge zeriqos at client sites, with centralized Prometheus &amp; Grafana observability and GitHub Actions CI/CD for distributed deployments.
           </p>
           <div class="project-tags">
             <span class="tag">Raspberry Pi</span>
@@ -1091,6 +1093,28 @@
             <span class="tag">Grafana</span>
             <span class="tag">GitHub Actions</span>
             <span class="tag">Python</span>
+          </div>
+        </div>
+
+        <div class="project-card fade-in fade-in-delay-1">
+          <div class="project-header">
+            <div class="project-icon"><i class="fas fa-shield-alt"></i></div>
+            <span class="project-year">2025</span>
+          </div>
+          <div class="project-title">Zeriqo Security Operations Platform</div>
+          <div class="project-client">Self-developed Product — DevOps &amp; Infrastructure</div>
+          <p class="project-desc">
+            Independently developed and operated a security operations product, with primary ownership across cloud infrastructure, container runtime, CI/CD pipeline, monitoring, and scanner automation. Focused on deployment reliability, service orchestration, runtime configuration, log visibility, and Nuclei-based vulnerability scanning workflows.
+          </p>
+          <a class="project-link" href="https://zeriqo.com" target="_blank" rel="noreferrer">
+            <i class="fas fa-arrow-up-right-from-square"></i> zeriqo.com
+          </a>
+          <div class="project-tags">
+            <span class="tag">Docker</span>
+            <span class="tag">Nuclei</span>
+            <span class="tag">Nginx</span>
+            <span class="tag">CI/CD</span>
+            <span class="tag">Monitoring</span>
           </div>
         </div>
 
